@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<script type="text/javascript">
+	
+	var createObjects = new createObject();
+ 	var objects = [];
+	function print() 
+	{
+   		console.log("Объект:");
+   		console.log(this.name + ": " + this.value);
+   	}
+ 	function createObj() 
+ 	{
+ 		var objname = prompt('Введите имя объекта');
+ 		var result = prompt('Введите ' + objname);
+ 		alert("Объект создан - " + objname + ': ' + result);
+ 		objects.push(createObjects.create(objname,result));
+ 	}
+ 	function object(nameobject,resultobj) 
+ 	{
+ 		this.name = nameobject;
+ 		this.value = resultobj;
+ 	}
+ 	function createObject() 
+	{
+		this.create = function (objname,result) 
+		{
+			return new object (objname,result);
+		}
+	}
+ 	function DisplayObj() 
+ 	{
+ 		objects.forEach( keys => 
+ 			{
+ 				print.call(keys)
+ 			});
+	}
+	
+</script>
+<body>
+	<button id="button1" onclick="createObj()">Создать объект</button>
+	<button id="button2" onclick="DisplayObj()">Все объекты</button>
+</body>
+</html>
